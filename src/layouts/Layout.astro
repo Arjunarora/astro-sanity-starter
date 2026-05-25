@@ -1,84 +1,233 @@
 ---
-import { type SiteConfig, type CustomImage } from 'types';
-import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
-import { fetchData } from '@data/siteConfig';
-
+import Footer from '@components/Footer.astro';
 import '../styles/globals.css';
 
 interface Props {
-    title: string;
-    addTitleSuffix?: boolean;
+    title?: string;
     description?: string;
-    image?: CustomImage;
 }
 
-const { addTitleSuffix, description, image } = Astro.props;
+const { 
+    title = "Arjun Arora | Data Scientist & Analytics Engineer", 
+    description = "Portfolio of Arjun Arora, a data scientist and analytics engineer in Germany with experience across AdTech, consulting, insurance claims, experimentation, predictive modeling, and applied AI." 
+} = Astro.props;
 
-const configData: SiteConfig = (await fetchData()) || {};
-const titleSuffix = configData.titleSuffix && addTitleSuffix !== false ? configData.titleSuffix : undefined;
-const title = [Astro.props.title, titleSuffix].filter(Boolean).join(' | ');
-const resolvedImage = image?.src ? { src: new URL(image.src, Astro.site).toString() } : undefined;
-const canonicalURL = new URL(Astro.request.url, Astro.site);
-
-/**
- * Enforce some standard canonical URL formatting across the site.
- */
-function formatCanonicalURL(url: string | URL) {
-    const path = url.toString();
-    const hasQueryParams = path.includes('?');
-    // If there are query params, make sure the URL has no trailing slash
-    if (hasQueryParams) {
-        path.replace(/\/?$/, '');
-    }
-    // otherwise, canonical URL always has a trailing slash
-    return path.replace(/\/?$/, hasQueryParams ? '' : '/');
-}
+const keywords = "Arjun Arora, Data Scientist Germany, Analytics Engineer, AdTech Analytics, Insurance Claims Analytics, Local AI, GDPR AI";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://arjunarora.dev');
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" class="scroll-smooth">
     <head>
-        <!-- High Priority Global Metadata -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>{title}</title>
         <meta name="generator" content={Astro.generator} />
-
-        <!-- Fonts -->
+        
+        <!-- Fonts: Outfit for display/heavy titles, Space Mono for monospace accents, Inter for clean copy -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-        <!-- Low Priority Global Metadata -->
-        {configData.favicon?.src && <link rel="icon" type="image/svg+xml" href={configData.favicon.src} />}
-        <link rel="sitemap" href="/sitemap-index.xml" />
-
-        <!-- Page Metadata -->
-        <link rel="canonical" href={formatCanonicalURL(canonicalURL)} />
+        <!-- SEO Metadata -->
+        <link rel="canonical" href={canonicalURL} />
         <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:url" content={formatCanonicalURL(canonicalURL)} />
+        <!-- Open Graph -->
+        <meta property="og:url" content={canonicalURL} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        {resolvedImage?.src && <meta property="og:image" content={resolvedImage.src} />}
+        <meta property="og:type" content="website" />
 
-        <!-- X/Twitter -->
+        <!-- Twitter Card -->
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={formatCanonicalURL(canonicalURL)} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-        {resolvedImage?.src && <meta property="twitter:image" content={resolvedImage.src} />}
+        
+        <style>
+            html {
+                font-family: 'Space Mono', monospace;
+            }
+        </style>
     </head>
-    <body class="antialiased">
-        <Header {...configData.header} data-sb-field-path={`${configData._id}:header`} />
-        <slot />
-        <Footer {...configData.footer} data-sb-field-path={`${configData._id}:footer`} />
-        <script is:inline>
-            window.addEventListener('stackbitObjectsChanged', () => {
-                window.location.reload();
-            });
-        </script>
+    <body class="bg-[#09060B] text-[#FFFDD0] min-h-screen relative overflow-x-hidden selection:bg-[#3E2723] selection:text-fuchsia-500">
+        
+        <!-- STICKER OVERLAY LAYER (Background Decorative Elements, opacity-5 to opacity-10) -->
+        <div class="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+            
+            <!-- Motif 1: Badminton Racket hitting Coffee Beans & Shuttle (Top Left / Hero Area Background) -->
+            <div class="absolute top-[8%] left-[-4%] md:left-[2%] text-[#FFFDD0] opacity-8 rotate-12">
+                <svg viewBox="0 0 100 100" class="w-52 h-52 fill-none stroke-current" stroke-width="1.2">
+                    <ellipse cx="40" cy="45" rx="18" ry="24" transform="rotate(-30 40 45)" />
+                    <line x1="28" y1="30" x2="42" y2="65" />
+                    <line x1="33" y1="28" x2="47" y2="63" />
+                    <line x1="38" y1="26" x2="52" y2="61" />
+                    <line x1="43" y1="26" x2="57" y2="61" />
+                    <line x1="23" y1="45" x2="53" y2="35" />
+                    <line x1="25" y1="50" x2="55" y2="40" />
+                    <line x1="27" y1="55" x2="57" y2="45" />
+                    <line x1="52" y1="61" x2="80" y2="90" stroke-width="2" />
+                    
+                    <g transform="translate(15, 20) rotate(-45)">
+                        <path d="M 10 20 C 10 23 20 23 20 20 Z" fill="currentColor" />
+                        <path d="M 10 20 L 5 5 L 25 5 L 20 20 Z" />
+                        <line x1="8" y1="5" x2="13" y2="20" />
+                        <line x1="15" y1="5" x2="15" y2="20" />
+                        <line x1="22" y1="5" x2="17" y2="20" />
+                    </g>
+                    
+                    <g transform="translate(20, 15) rotate(15)">
+                        <ellipse cx="0" cy="0" rx="2" ry="3.5" fill="currentColor" />
+                        <path d="M -0.5 -3.5 Q 0.5 0 -0.5 3.5" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <g transform="translate(10, 32) rotate(-60)">
+                        <ellipse cx="0" cy="0" rx="1.8" ry="3" fill="currentColor" />
+                        <path d="M -0.4 -3 Q 0.4 0 -0.4 3" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <g transform="translate(38, 12) rotate(45)">
+                        <ellipse cx="0" cy="0" rx="1.5" ry="2.5" fill="currentColor" />
+                        <path d="M -0.3 -2.5 Q 0.3 0 -0.3 2.5" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <text x="5" y="98" font-family="monospace" font-size="5" fill="currentColor" letter-spacing="0.5">[MOTIF 01 // COFFEE & BADMINTON COLLISION]</text>
+                </svg>
+            </div>
+
+            <!-- Motif 2: Portafilter with hovering coffee beans (Mid Right / Hero bottom) -->
+            <div class="absolute top-[26%] right-[-5%] md:right-[2%] text-[#FFFDD0] opacity-8 -rotate-12">
+                <svg viewBox="0 0 100 100" class="w-56 h-56 fill-none stroke-current" stroke-width="1.2">
+                    <circle cx="45" cy="40" r="18" />
+                    <path d="M 57.7 52.7 L 85 80" stroke-width="3" stroke-linecap="round" />
+                    <path d="M 27 40 L 23 40" stroke-width="2" />
+                    <path d="M 45 22 L 45 18" stroke-width="2" />
+                    
+                    <path d="M 42 58 C 42 63 45 65 45 65 C 45 65 48 63 48 58" fill="currentColor" />
+                    <circle cx="45" cy="72" r="2" fill="currentColor" />
+                    
+                    <g transform="translate(25, 20) rotate(30)">
+                        <ellipse cx="0" cy="0" rx="2.5" ry="4.5" fill="currentColor" />
+                        <path d="M -0.8 -4.5 Q 0.8 0 -0.8 4.5" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <g transform="translate(68, 30) rotate(-15)">
+                        <ellipse cx="0" cy="0" rx="2" ry="3.5" fill="currentColor" />
+                        <path d="M -0.5 -3.5 Q 0.5 0 -0.5 3.5" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <g transform="translate(65, 60) rotate(80)">
+                        <ellipse cx="0" cy="0" rx="3" ry="5" fill="currentColor" />
+                        <path d="M -1 -5 Q 1 0 -1 5" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <text x="5" y="98" font-family="monospace" font-size="5" fill="currentColor" letter-spacing="0.5">[MOTIF 02 // ESPRESSO EXTRACT]</text>
+                </svg>
+            </div>
+
+            <!-- Motif 3: Cup with Normal Distribution Steam (Mid-Left) -->
+            <div class="absolute top-[48%] left-[-4%] md:left-[3%] text-[#FFFDD0] opacity-8 rotate-[15deg]">
+                <svg viewBox="0 0 100 100" class="w-48 h-48 fill-none stroke-current" stroke-width="1.2">
+                    <path d="M 30 50 L 70 50 L 65 75 C 63 83 37 83 35 75 Z" />
+                    <path d="M 70 55 A 8 8 0 0 1 70 70" />
+                    <ellipse cx="50" cy="50" rx="20" ry="4" />
+                    
+                    <path d="M 35 40 Q 42 20 50 20 T 65 40" stroke-dasharray="2,2" />
+                    <path d="M 40 40 Q 46 12 50 12 T 60 40" stroke-width="1.5" />
+                    <path d="M 45 40 Q 48 30 50 30 T 55 40" stroke-dasharray="1,1" />
+                    
+                    <g transform="translate(50, 50) scale(0.35) translate(-45, -50)">
+                        <path d="M 45 35 C 40 25 30 25 35 40 C 40 50 45 65 45 65 C 45 65 50 50 55 40 C 60 25 50 25 45 35 Z" fill="currentColor" />
+                    </g>
+                    
+                    <g transform="translate(18, 65) rotate(45)">
+                        <ellipse cx="0" cy="0" rx="2" ry="3.5" fill="currentColor" />
+                        <path d="M -0.6 -3.5 Q 0.6 0 -0.6 3.5" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <text x="5" y="98" font-family="monospace" font-size="5" fill="currentColor" letter-spacing="0.5">[MOTIF 03 // GAUSSIAN STEAM & ROSETTA]</text>
+                </svg>
+            </div>
+
+            <!-- Motif 4: Coffee Bean Scatter Plot (Bottom Left / Experience) -->
+            <div class="absolute bottom-[24%] left-[-2%] md:left-[4%] text-[#FFFDD0] opacity-7 -rotate-6">
+                <svg viewBox="0 0 100 100" class="w-52 h-52 fill-none stroke-current" stroke-width="1.0">
+                    <line x1="15" y1="15" x2="15" y2="85" />
+                    <line x1="15" y1="85" x2="85" y2="85" />
+                    
+                    <g transform="translate(30, 70) rotate(12) scale(0.8)">
+                        <ellipse cx="0" cy="0" rx="3" ry="5" fill="currentColor" />
+                        <path d="M -1 -5 Q 1 0 -1 5" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <g transform="translate(45, 50) rotate(-35) scale(0.8)">
+                        <ellipse cx="0" cy="0" rx="3" ry="5" fill="currentColor" />
+                        <path d="M -1 -5 Q 1 0 -1 5" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <g transform="translate(60, 45) rotate(80) scale(0.8)">
+                        <ellipse cx="0" cy="0" rx="3" ry="5" fill="currentColor" />
+                        <path d="M -1 -5 Q 1 0 -1 5" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <g transform="translate(75, 25) rotate(-10) scale(0.8)">
+                        <ellipse cx="0" cy="0" rx="3" ry="5" fill="currentColor" />
+                        <path d="M -1 -5 Q 1 0 -1 5" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    
+                    <line x1="15" y1="80" x2="85" y2="20" stroke-width="1.5" stroke-dasharray="3,3" />
+                    <text x="5" y="98" font-family="monospace" font-size="5" fill="currentColor" letter-spacing="0.5">[MOTIF 04 // COFFEE REGRESSION PLOT]</text>
+                </svg>
+            </div>
+
+            <!-- Motif 5: Shuttlecock Nesting on Coffee Beans (Bottom Right) -->
+            <div class="absolute bottom-[5%] right-[-3%] md:right-[3%] text-[#FFFDD0] opacity-8 rotate-[25deg]">
+                <svg viewBox="0 0 100 100" class="w-48 h-48 fill-none stroke-current" stroke-width="1.2">
+                    <g transform="translate(20, 15) rotate(15)">
+                        <path d="M 40 70 C 40 80 60 80 60 70 Z" />
+                        <path d="M 40 70 L 25 25 L 75 25 L 60 70 Z" />
+                        <path d="M 30 40 Q 50 45 70 40" />
+                        <line x1="33" y1="25" x2="43" y2="70" />
+                        <line x1="50" y1="25" x2="50" y2="70" />
+                        <line x1="67" y1="25" x2="57" y2="70" />
+                    </g>
+                    
+                    <g transform="translate(22, 80) rotate(-20)">
+                        <ellipse cx="0" cy="0" rx="2.5" ry="4" fill="currentColor" />
+                        <path d="M -0.8 -4 Q 0.8 0 -0.8 4" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <g transform="translate(35, 83) rotate(45)">
+                        <ellipse cx="0" cy="0" rx="2.5" ry="4" fill="currentColor" />
+                        <path d="M -0.8 -4 Q 0.8 0 -0.8 4" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <g transform="translate(48, 81) rotate(10)">
+                        <ellipse cx="0" cy="0" rx="2.2" ry="3.8" fill="currentColor" />
+                        <path d="M -0.6 -3.8 Q 0.6 0 -0.6 3.8" stroke="#09060B" stroke-width="0.8" />
+                    </g>
+                    <text x="5" y="98" font-family="monospace" font-size="5" fill="currentColor" letter-spacing="0.5">[MOTIF 05 // SYSTEM SYNERGY]</text>
+                </svg>
+            </div>
+            
+            <!-- Extra Scattered Coffee Beans -->
+            <div class="absolute top-[18%] left-[20%] text-[#FFFDD0] opacity-4 rotate-45">
+                <svg viewBox="0 0 20 20" class="w-6 h-6 fill-none stroke-current" stroke-width="1.2">
+                    <ellipse cx="10" cy="10" rx="3" ry="5.5" fill="currentColor"/>
+                    <path d="M 9 4.5 Q 11 10 9 15.5" stroke="#09060B" stroke-width="0.8"/>
+                </svg>
+            </div>
+            <div class="absolute top-[42%] right-[25%] text-[#FFFDD0] opacity-4 -rotate-12">
+                <svg viewBox="0 0 20 20" class="w-5 h-5 fill-none stroke-current" stroke-width="1.2">
+                    <ellipse cx="10" cy="10" rx="2.5" ry="4.5" fill="currentColor"/>
+                    <path d="M 9.2 5.5 Q 10.8 10 9.2 14.5" stroke="#09060B" stroke-width="0.8"/>
+                </svg>
+            </div>
+            <div class="absolute bottom-[40%] left-[30%] text-[#FFFDD0] opacity-4 rotate-[110deg]">
+                <svg viewBox="0 0 20 20" class="w-6 h-6 fill-none stroke-current" stroke-width="1.2">
+                    <ellipse cx="10" cy="10" rx="3" ry="5.5" fill="currentColor"/>
+                    <path d="M 9 4.5 Q 11 10 9 15.5" stroke="#09060B" stroke-width="0.8"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Site Content -->
+        <div class="relative z-10 flex flex-col min-h-screen">
+            <Header />
+            <main class="flex-grow">
+                <slot />
+            </main>
+            <Footer />
+        </div>
     </body>
 </html>

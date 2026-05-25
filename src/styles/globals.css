@@ -1,32 +1,60 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
-@plugin "daisyui/theme" {
-    name: 'dark';
-    --color-primary: #ffae9c;
-    --color-primary-content: #171227;
-    --color-secondary: #fff2d7;
-    --color-secondary-content: #171227;
-    --color-accent: #e3f1ff;
-    --color-accent-content: #171227;
-    --color-neutral: #2e293c;
-    --color-neutral-content: #ffffff;
-    --color-base-100: #171227;
-    --color-base-200: #2e293c;
-    --color-base-content: #ffffff;
+@theme {
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  
+  --color-espresso: #3E2723;
+  --color-cream: #FFFDD0;
+  --color-cream-bg: #FDFBF7;
+  --color-plum-border: #6B21A8;
 }
 
 @plugin "daisyui/theme" {
-    name: 'light';
-    --color-primary: #ffae9c;
-    --color-primary-content: #171227;
-    --color-secondary: #fff2d7;
-    --color-secondary-content: #171227;
-    --color-accent: #e3f1ff;
-    --color-accent-content: #171227;
-    --color-neutral: #171227;
-    --color-neutral-content: #ffffff;
-    --color-base-100: #ffffff;
-    --color-base-200: #d7d8e4;
-    --color-base-content: #171227;
+    name: 'dark';
+    --color-primary: #d946ef; /* text-fuchsia-500 equivalent */
+    --color-primary-content: #09060B;
+    --color-secondary: #FFFDD0;
+    --color-secondary-content: #3E2723;
+    --color-accent: #3E2723;
+    --color-accent-content: #FFFDD0;
+    --color-neutral: #3E2723;
+    --color-neutral-content: #FFFDD0;
+    --color-base-100: #09060B;
+    --color-base-200: #1c1124;
+    --color-base-content: #FFFDD0;
+}
+
+/* Custom Base Styles */
+body {
+    background-color: #09060B;
+    color: #FFFDD0;
+    font-family: 'Space Mono', monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+}
+
+/* Sharp borders & structural elements */
+.rounded-none {
+    border-radius: 0px !important;
+}
+
+/* Custom scrollbars for high fidelity */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #09060B;
+}
+::-webkit-scrollbar-thumb {
+    background: #3E2723;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6B21A8;
 }

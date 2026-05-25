@@ -1,18 +1,22 @@
 ---
-import { marked } from 'marked';
-import { type Footer } from 'types';
-
-interface Props extends Footer {
-    'data-sb-field-path'?: string;
-}
-
-const { text, 'data-sb-field-path': fieldPath } = Astro.props;
+// Static Footer for Arjun Arora
 ---
 
-{
-    text && (
-        <footer class="px-4 py-16 sm:px-5 sm:py-24" data-sb-field-path={fieldPath}>
-            <div class="mx-auto text-center max-w-7xl" data-sb-field-path=".text" set:html={marked.parse(text)} />
-        </footer>
-    )
-}
+<footer class="w-full border-t-2 border-purple-900/50 bg-[#09060B] py-12 px-4 md:px-8 mt-20 rounded-none">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs md:text-sm text-[#FFFDD0]/70">
+        <div>
+            <p>© 2026 Arjun Arora. Built with Astro & Docker.</p>
+        </div>
+        <div class="flex items-center gap-6">
+            <a href="https://www.linkedin.com/in/iarjunarora/" target="_blank" rel="noopener noreferrer" class="hover:text-fuchsia-500 hover:underline">
+                [LINKEDIN]
+            </a>
+            <a href="https://github.com/Arjunarora" target="_blank" rel="noopener noreferrer" class="hover:text-fuchsia-500 hover:underline">
+                [GITHUB]
+            </a>
+            <a href="mailto:aroraarjun1996@gmail.com" class="hover:text-fuchsia-500 hover:underline">
+                [EMAIL]
+            </a>
+        </div>
+    </div>
+</footer>
