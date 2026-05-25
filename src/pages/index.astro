@@ -1,0 +1,868 @@
+---
+import '../styles/globals.css';
+
+const siteUrl = 'https://arjunarora.de';
+const pageTitle = 'Arjun Arora | Data Scientist & Analytics Engineer';
+const pageDescription =
+    'Portfolio of Arjun Arora, a data scientist and analytics engineer in Germany with experience across AdTech, consulting, insurance claims, experimentation, predictive modeling, and applied AI.';
+const keywords =
+    'Arjun Arora, Data Scientist Germany, Analytics Engineer, AdTech Analytics, Insurance Claims Analytics, Predictive Modeling, Experimentation, Local AI, GDPR AI';
+
+const navLinks = [
+    { label: 'Profile', href: '#profile' },
+    { label: 'Stack', href: '#stack' },
+    { label: 'Track Record', href: '#track' },
+    { label: 'Projects', href: '#projects' },
+];
+
+const specializations = [
+    {
+        title: 'Data Science & Modeling',
+        desc: 'Predictive modeling, forecasting, segmentation, valuation, experimentation, and statistical analysis grounded in real operational and commercial use cases.',
+    },
+    {
+        title: 'Analytics Engineering',
+        desc: 'Python, SQL, dashboards, KPI systems, ETL workflows, and reliable data foundations for decision-making across product, sales, and operations.',
+    },
+    {
+        title: 'Industry Experience',
+        desc: 'Experience across AdTech, consulting, and automobile insurance claims management, with strong exposure to performance analytics, process automation, and business-facing problem solving.',
+    },
+    {
+        title: 'Responsible Applied AI',
+        desc: 'Interested in AI systems that are practical, private, and useful—from production ML pipelines to local-first assistants and workflows designed with GDPR, efficiency, and real user value in mind.',
+    },
+];
+
+const interests = [
+    {
+        label: 'Calculation first',
+        text: 'I enjoy breaking messy real-world problems into measurable systems.',
+    },
+    {
+        label: 'Data for good',
+        text: 'Especially interested in applications tied to fairness, efficiency, sustainability, and socially useful outcomes.',
+    },
+    {
+        label: 'Environmental analytics',
+        text: 'Strong interest in CO₂ emissions, climate/economic data, and analytical approaches that improve understanding of impact.',
+    },
+    {
+        label: 'Human side',
+        text: 'Coffee, latte art, and badminton bring energy, patience, rhythm, and precision into the way I work.',
+    },
+];
+
+const buildItems = [
+    'Local AI models and agent workflows',
+    'Qwen, Hermes, OpenWebUI, LiteLLM, MCP',
+    'Private and GDPR-conscious AI infrastructure',
+    'Internal assistants for support, knowledge work, and operational workflows',
+    'End-to-end chatbot systems from interface to orchestration to model integration',
+];
+
+const stackRows = [
+    { category: 'Languages', items: ['Python', 'SQL', 'R'] },
+    { category: 'Data Science', items: ['Scikit-learn', 'Pandas', 'NumPy', 'PySpark', 'MLflow'] },
+    { category: 'Analytics & BI', items: ['Tableau', 'Power BI', 'Looker', 'A/B Testing', 'Causal Inference'] },
+    { category: 'Cloud & Data', items: ['AWS', 'GCP', 'BigQuery', 'Redshift', 'Athena', 'Airflow'] },
+    { category: 'Current AI Stack', items: ['Qwen', 'Hermes', 'LiteLLM', 'OpenWebUI', 'MCP', 'Local LLM Workflows'] },
+];
+
+const timeline = [
+    {
+        period: 'Present',
+        org: 'WinValue (Germany)',
+        desc: 'Building analytical products and data systems in automobile insurance claims and valuation, including OCR pipelines, predictive models, reporting systems, and automation workflows.',
+    },
+    {
+        period: 'Past',
+        org: 'Criteo',
+        desc: 'Worked on large-scale AdTech analytics, experimentation, campaign performance measurement, LTV modeling, bidding optimization, and data pipelines processing terabytes of event data.',
+    },
+    {
+        period: 'Past',
+        org: 'KPMG',
+        desc: 'Delivered Python- and SQL-based analytics work for enterprise clients, identifying control gaps, anomalies, and opportunities for better decisions.',
+    },
+    {
+        period: 'Past',
+        org: 'Accenture',
+        desc: 'Early foundation in software engineering, application development, and working in production-focused delivery environments.',
+    },
+    {
+        period: 'Research',
+        org: 'TU Braunschweig',
+        desc: 'Worked on causal inference, econometric modeling, climate/economic datasets, and AI-driven research with a strong methodological basis.',
+    },
+];
+
+const projects = [
+    {
+        num: '01',
+        title: 'Claims & Valuation Intelligence',
+        tag: 'Insurance / Predictive Modeling',
+        desc: 'Applied machine learning and analytics engineering to automobile insurance claims, valuation workflows, OCR extraction, and structured decision support.',
+    },
+    {
+        num: '02',
+        title: 'Experimentation at Scale',
+        tag: 'AdTech / Data Science',
+        desc: 'Designed and analyzed hundreds of A/B tests on pricing, bidding, and product changes, translating experimental results into commercial action.',
+    },
+    {
+        num: '03',
+        title: 'High-Volume Data Systems',
+        tag: 'Analytics Engineering / Scale',
+        desc: 'Built Python, SQL, and PySpark workflows for large-scale reporting, modeling, and trustworthy data quality across operational systems.',
+    },
+    {
+        num: '04',
+        title: 'Local & Private AI Workflows',
+        tag: 'Current Focus / Applied AI',
+        desc: 'Building local-first and privacy-conscious AI assistants and chatbot workflows using modern open model stacks and orchestration tooling.',
+    },
+];
+
+const projectBorderClass = [
+    '',
+    'border-l border-purple-900/50',
+    'border-t border-purple-900/50',
+    'border-t border-l border-purple-900/50',
+];
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={keywords} />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Arjun Arora" />
+
+        <!-- Fonts: Inter (heavy weights) + JetBrains Mono -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Arjun Arora" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+
+        <link rel="sitemap" href="/sitemap-index.xml" />
+
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #09060b;
+                color: #cbd5e1;
+                -webkit-font-smoothing: antialiased;
+            }
+            .mono {
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+            /* Subtle background grid pattern */
+            .bg-grid {
+                background-image: linear-gradient(
+                        rgba(88, 28, 135, 0.04) 1px,
+                        transparent 1px
+                    ),
+                    linear-gradient(
+                        90deg,
+                        rgba(88, 28, 135, 0.04) 1px,
+                        transparent 1px
+                    );
+                background-size: 48px 48px;
+            }
+
+            /* Badge: sharp solid border block, no rounding */
+            .badge-block {
+                display: inline-flex;
+                align-items: center;
+                padding: 0.2rem 0.65rem;
+                border: 1px solid rgba(107, 33, 168, 0.65);
+                background-color: rgba(88, 28, 135, 0.1);
+                color: #e879f9;
+                font-size: 0.68rem;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+            /* Stack row tile */
+            .stack-tile {
+                border: 1px solid rgba(88, 28, 135, 0.35);
+                background-color: rgba(62, 39, 35, 0.06);
+                padding: 0.875rem 1.25rem;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            /* Project card hover state */
+            .project-card {
+                transition: background-color 0.2s ease, border-color 0.2s ease;
+                cursor: default;
+            }
+            .project-card:hover {
+                background-color: rgba(62, 39, 35, 0.1);
+                border-color: rgba(192, 38, 211, 0.35) !important;
+            }
+
+            /* Nav link underline animation */
+            .nav-link {
+                position: relative;
+                transition: color 0.2s;
+            }
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: #d946ef;
+                transition: width 0.25s ease;
+            }
+            .nav-link:hover {
+                color: #d946ef;
+            }
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            /* Decorative SVG stickers */
+            .sticker {
+                position: absolute;
+                pointer-events: none;
+                color: rgba(107, 33, 168, 1);
+            }
+
+            /* CTA button hover */
+            .cta-primary:hover {
+                background-color: rgba(217, 70, 239, 0.2);
+            }
+            .cta-secondary:hover {
+                border-color: rgba(107, 33, 168, 0.8);
+                color: #c084fc;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- ─── Navigation ──────────────────────────────────────────────────────── -->
+        <header
+            class="fixed top-0 left-0 right-0 z-50 border-b border-purple-900/40"
+            style="background-color: rgba(9,6,11,0.92); backdrop-filter: blur(8px);"
+        >
+            <nav
+                class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between"
+            >
+                <a
+                    href="#"
+                    class="mono text-fuchsia-500 text-xs font-bold tracking-[0.3em] uppercase"
+                    >AA</a
+                >
+                <ul class="hidden sm:flex items-center gap-8">
+                    {
+                        navLinks.map((link) => (
+                            <li>
+                                <a
+                                    href={link.href}
+                                    class="nav-link mono text-xs text-slate-400 uppercase tracking-wider"
+                                >
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+                <a
+                    href="https://www.linkedin.com/in/arjunarora/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hidden sm:inline-flex items-center gap-1.5 border border-purple-800/50 bg-purple-950/30 text-fuchsia-400 mono text-xs px-4 py-2 uppercase tracking-wider transition-colors hover:bg-purple-900/30"
+                >
+                    LinkedIn ↗
+                </a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- ─── Hero Section ────────────────────────────────────────────────── -->
+            <section
+                class="relative overflow-hidden pt-32 pb-24 sm:pt-44 sm:pb-36 bg-grid"
+            >
+                <!-- SVG Sticker: Latte art (top-left) -->
+                <div
+                    class="sticker opacity-[0.07] w-52 h-52"
+                    style="top: 4%; left: 1%;"
+                    aria-hidden="true"
+                >
+                    <svg
+                        viewBox="0 0 120 120"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                    >
+                        <ellipse cx="60" cy="44" rx="38" ry="13"></ellipse>
+                        <path d="M22 44 L17 96 Q60 112 103 96 L98 44"></path>
+                        <path
+                            d="M98 56 Q116 56 116 71 Q116 86 98 86"
+                        ></path>
+                        <path d="M60 30 Q68 37 60 44 Q52 51 60 58"></path>
+                        <circle
+                            cx="60"
+                            cy="58"
+                            r="2.5"
+                            fill="currentColor"
+                            stroke="none"></circle>
+                    </svg>
+                </div>
+
+                <!-- SVG Sticker: Badminton shuttle (top-right) -->
+                <div
+                    class="sticker opacity-[0.06] w-36 h-52"
+                    style="top: 2%; right: 2%;"
+                    aria-hidden="true"
+                >
+                    <svg
+                        viewBox="0 0 72 140"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                    >
+                        <ellipse cx="36" cy="122" rx="11" ry="6"></ellipse>
+                        <line x1="25" y1="122" x2="36" y2="28"></line>
+                        <line x1="47" y1="122" x2="36" y2="28"></line>
+                        <line x1="36" y1="116" x2="36" y2="28"></line>
+                        <line x1="29" y1="100" x2="43" y2="100"></line>
+                        <line x1="26" y1="80" x2="46" y2="80"></line>
+                        <line x1="23" y1="60" x2="49" y2="60"></line>
+                        <ellipse cx="36" cy="28" rx="22" ry="10"></ellipse>
+                    </svg>
+                </div>
+
+                <!-- Fuchsia gradient glow (far right) -->
+                <div
+                    class="absolute top-0 right-0 w-96 h-96 opacity-[0.04] pointer-events-none"
+                    style="background: radial-gradient(circle at 70% 30%, #d946ef, transparent 70%);"
+                    aria-hidden="true"
+                ></div>
+
+                <div class="max-w-6xl mx-auto px-6">
+                    <!-- Section label row -->
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-8 h-px bg-fuchsia-500"></div>
+                        <span
+                            class="mono text-xs text-fuchsia-500 uppercase tracking-[0.2em]"
+                            >Data Scientist & Analytics Engineer · Germany</span
+                        >
+                    </div>
+
+                    <!-- Main headline -->
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.05] text-white uppercase mb-6 max-w-4xl"
+                    >
+                        Data, Decisions, and Systems That Actually Matter.
+                    </h1>
+
+                    <!-- Sub-headline -->
+                    <p
+                        class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mb-10"
+                    >
+                        Data scientist and analytics engineer with 5+ years of
+                        experience across AdTech, consulting, automobile insurance
+                        claims, and applied machine learning—building models,
+                        pipelines, experiments, and analytical products that solve
+                        real business problems.
+                    </p>
+
+                    <!-- Core Focus Badges -->
+                    <div class="flex flex-wrap gap-2 mb-10">
+                        {
+                            [
+                                'Data Science',
+                                'Experimentation',
+                                'Analytics Engineering',
+                                'Predictive Modeling',
+                                'Applied AI',
+                            ].map((badge) => (
+                                <span class="badge-block">{badge}</span>
+                            ))
+                        }
+                    </div>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap gap-4">
+                        <a
+                            href="#projects"
+                            class="cta-primary inline-flex items-center gap-2 border-2 border-fuchsia-500 bg-fuchsia-500/10 text-fuchsia-300 font-bold uppercase tracking-wider text-sm px-7 py-3 transition-colors"
+                        >
+                            Explore Selected Work
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/arjunarora/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="cta-secondary inline-flex items-center gap-2 border-2 border-purple-800/50 text-purple-300 font-bold uppercase tracking-wider text-sm px-7 py-3 transition-colors"
+                        >
+                            Connect on LinkedIn ↗
+                        </a>
+                    </div>
+
+                    <!-- Bottom divider row -->
+                    <div
+                        class="mt-20 pt-8 border-t border-purple-900/40 flex flex-wrap items-center gap-6"
+                    >
+                        <span
+                            class="mono text-xs text-slate-600 uppercase tracking-widest"
+                            >Based in Germany</span
+                        >
+                        <div
+                            class="flex-1 h-px"
+                            style="background: linear-gradient(to right, rgba(88,28,135,0.3), transparent);"
+                        ></div>
+                        <span
+                            class="mono text-xs text-slate-600 uppercase tracking-widest"
+                            >Open to Data Roles</span
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── Professional Profile & Core Specializations ─────────────────── -->
+            <section
+                id="profile"
+                class="relative border-t-2 border-purple-900/40 py-20 sm:py-28"
+            >
+                <!-- Sigma sticker (bottom-right) -->
+                <div
+                    class="sticker opacity-[0.07] w-28 h-36"
+                    style="bottom: 6%; right: 2%;"
+                    aria-hidden="true"
+                >
+                    <svg
+                        viewBox="0 0 60 80"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                    >
+                        <path d="M54 8 L6 8 L36 40 L6 72 L54 72"></path>
+                    </svg>
+                </div>
+
+                <div class="max-w-6xl mx-auto px-6">
+                    <!-- Section header -->
+                    <div class="mb-12">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-1 h-8 bg-fuchsia-500"></div>
+                            <span
+                                class="mono text-xs text-fuchsia-500 uppercase tracking-[0.2em]"
+                                >Professional Profile</span
+                            >
+                        </div>
+                        <p
+                            class="text-slate-300 text-base leading-relaxed max-w-3xl"
+                        >
+                            I work across data science, analytics engineering, and
+                            applied machine learning. My background spans advertiser
+                            analytics, enterprise consulting, insurance claims
+                            automation, and research-driven modeling. I care most
+                            about calculation, clarity, and building systems that
+                            help people make better decisions—especially where data
+                            can be used responsibly and for good.
+                        </p>
+                    </div>
+
+                    <!-- 4-column specializations grid -->
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-4 border-2 border-purple-900/50"
+                    >
+                        {
+                            specializations.map((block, i) => (
+                                <div
+                                    class={`p-6 sm:p-7 ${i < 3 ? 'border-b-2 md:border-b-0 md:border-r-2 border-purple-900/50' : ''}`}
+                                >
+                                    <div class="w-5 h-px bg-fuchsia-500/60 mb-4" />
+                                    <h3 class="text-white font-extrabold text-xs uppercase tracking-wider mb-3 leading-snug">
+                                        {block.title}
+                                    </h3>
+                                    <p class="text-slate-400 text-sm leading-relaxed">
+                                        {block.desc}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── Interests & Philosophy ──────────────────────────────────────── -->
+            <section
+                class="relative border-t border-purple-900/30 py-20 sm:py-28"
+            >
+                <!-- Espresso portafilter sticker (bottom-left) -->
+                <div
+                    class="sticker opacity-[0.07] w-32 h-44"
+                    style="bottom: 0; left: 1%;"
+                    aria-hidden="true"
+                >
+                    <svg
+                        viewBox="0 0 80 120"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <ellipse cx="40" cy="36" rx="32" ry="12"></ellipse>
+                        <rect x="8" y="36" width="64" height="30"></rect>
+                        <line x1="24" y1="66" x2="20" y2="102"></line>
+                        <line x1="40" y1="66" x2="40" y2="102"></line>
+                        <line x1="56" y1="66" x2="60" y2="102"></line>
+                        <line x1="40" y1="24" x2="40" y2="36"></line>
+                        <path d="M8 36 Q0 51 8 66"></path>
+                    </svg>
+                </div>
+
+                <div class="max-w-6xl mx-auto px-6">
+                    <div
+                        class="grid md:grid-cols-[280px_1fr] gap-12 sm:gap-16 items-start"
+                    >
+                        <!-- Left: title -->
+                        <div class="md:sticky md:top-20">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-1 h-8 bg-fuchsia-500"></div>
+                                <span
+                                    class="mono text-xs text-fuchsia-500 uppercase tracking-[0.2em]"
+                                    >Philosophy</span
+                                >
+                            </div>
+                            <h2
+                                class="text-2xl sm:text-3xl font-extrabold tracking-tight uppercase text-white leading-tight"
+                            >
+                                What Drives Me
+                            </h2>
+                        </div>
+
+                        <!-- Right: numbered list -->
+                        <div class="space-y-0">
+                            {
+                                interests.map((item, i) => (
+                                    <div
+                                        class={`flex gap-6 py-6 ${i < interests.length - 1 ? 'border-b border-purple-900/30' : ''}`}
+                                    >
+                                        <div class="mono text-fuchsia-500/30 text-xs pt-1 shrink-0 w-6 font-bold">
+                                            {String(i + 1).padStart(2, '0')}
+                                        </div>
+                                        <div>
+                                            <span class="text-white font-extrabold text-sm uppercase tracking-wider">
+                                                {item.label}:
+                                            </span>
+                                            <span class="text-slate-400 text-sm ml-2">
+                                                {item.text}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── Current Build Mode ──────────────────────────────────────────── -->
+            <section
+                class="border-t border-purple-900/30 py-20 sm:py-28"
+                style="background-color: #0c0910;"
+            >
+                <div class="max-w-6xl mx-auto px-6">
+                    <div
+                        class="grid md:grid-cols-[280px_1fr] gap-12 sm:gap-16 items-start"
+                    >
+                        <!-- Left -->
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-1 h-8 bg-fuchsia-500"></div>
+                                <span
+                                    class="mono text-xs text-fuchsia-500 uppercase tracking-[0.2em]"
+                                    >Active Now</span
+                                >
+                            </div>
+                            <h2
+                                class="text-2xl sm:text-3xl font-extrabold tracking-tight uppercase text-white leading-tight mb-4"
+                            >
+                                Current Focus
+                            </h2>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Right now I am learning and building end-to-end AI
+                                chatbots and workflow systems using local and private
+                                infrastructure.
+                            </p>
+                        </div>
+
+                        <!-- Right: checklist panel -->
+                        <div
+                            class="border border-purple-900/50 p-6 sm:p-8"
+                            style="background-color: rgba(62,39,35,0.05);"
+                        >
+                            <div
+                                class="mono text-xs text-slate-600 uppercase tracking-widest mb-6 pb-4 border-b border-purple-900/30"
+                            >
+                                Build Checklist
+                            </div>
+                            <div class="space-y-4">
+                                {
+                                    buildItems.map((item) => (
+                                        <div class="flex items-start gap-4">
+                                            <div
+                                                class="w-4 h-4 border border-fuchsia-500/40 mt-0.5 flex items-center justify-center shrink-0"
+                                                style="background: rgba(217,70,239,0.08);"
+                                            >
+                                                <div
+                                                    class="w-1.5 h-1.5"
+                                                    style="background-color: rgba(217,70,239,0.7);"
+                                                />
+                                            </div>
+                                            <span class="text-slate-300 text-sm leading-snug">
+                                                {item}
+                                            </span>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── Tech Stack ──────────────────────────────────────────────────── -->
+            <section
+                id="stack"
+                class="relative border-t border-purple-900/30 py-20 sm:py-28"
+            >
+                <!-- Bar chart sticker (top-right) -->
+                <div
+                    class="sticker opacity-[0.07] w-36 h-36"
+                    style="top: 8%; right: 2%;"
+                    aria-hidden="true"
+                >
+                    <svg
+                        viewBox="0 0 80 80"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <line x1="5" y1="75" x2="75" y2="75"></line>
+                        <line x1="5" y1="5" x2="5" y2="75"></line>
+                        <rect x="10" y="46" width="14" height="29"></rect>
+                        <rect x="28" y="28" width="14" height="47"></rect>
+                        <rect x="46" y="14" width="14" height="61"></rect>
+                    </svg>
+                </div>
+
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-1 h-8 bg-fuchsia-500"></div>
+                        <span
+                            class="mono text-xs text-fuchsia-500 uppercase tracking-[0.2em]"
+                            >Technical Skills</span
+                        >
+                        <div
+                            class="flex-1 h-px ml-4"
+                            style="background-color: rgba(88,28,135,0.25);"
+                        ></div>
+                    </div>
+
+                    <h2
+                        class="text-2xl sm:text-3xl font-extrabold tracking-tight uppercase text-white mb-10"
+                    >
+                        Relevant Tech Stack
+                    </h2>
+
+                    <div class="space-y-2">
+                        {
+                            stackRows.map((row) => (
+                                <div class="stack-tile">
+                                    <div class="mono text-xs text-fuchsia-500/70 uppercase tracking-widest w-36 shrink-0">
+                                        {row.category}
+                                    </div>
+                                    <div class="flex flex-wrap gap-2">
+                                        {row.items.map((item) => (
+                                            <span class="mono text-xs text-slate-300 px-2.5 py-1 border border-purple-900/30 bg-purple-950/20">
+                                                {item}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── Industry & Track Record ─────────────────────────────────────── -->
+            <section
+                id="track"
+                class="border-t border-purple-900/30 py-20 sm:py-28"
+                style="background-color: #0c0910;"
+            >
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-1 h-8 bg-fuchsia-500"></div>
+                        <span
+                            class="mono text-xs text-fuchsia-500 uppercase tracking-[0.2em]"
+                            >Career History</span
+                        >
+                        <div
+                            class="flex-1 h-px ml-4"
+                            style="background-color: rgba(88,28,135,0.25);"
+                        ></div>
+                    </div>
+
+                    <h2
+                        class="text-2xl sm:text-3xl font-extrabold tracking-tight uppercase text-white mb-12"
+                    >
+                        Industry & Track Record
+                    </h2>
+
+                    <div class="max-w-3xl">
+                        {
+                            timeline.map((item, i) => (
+                                <div class="flex gap-0">
+                                    <!-- Timeline column: square marker + vertical line -->
+                                    <div class="flex flex-col items-center mr-7 shrink-0">
+                                        <div
+                                            class="w-2.5 h-2.5 mt-1.5 shrink-0"
+                                            style="background-color: #d946ef;"
+                                        />
+                                        {i < timeline.length - 1 && (
+                                            <div
+                                                class="w-px flex-1 mt-1"
+                                                style="background-color: rgba(88,28,135,0.45);"
+                                            />
+                                        )}
+                                    </div>
+                                    <!-- Content -->
+                                    <div
+                                        class={`pb-10 flex-1 ${i === timeline.length - 1 ? 'pb-0' : ''}`}
+                                    >
+                                        <div class="flex flex-wrap items-center gap-3 mb-2">
+                                            <span class="mono text-xs border border-purple-800/40 bg-purple-950/20 text-fuchsia-400/60 px-2 py-0.5 uppercase tracking-wider">
+                                                {item.period}
+                                            </span>
+                                            <h3 class="text-white font-extrabold text-sm uppercase tracking-wider">
+                                                {item.org}
+                                            </h3>
+                                        </div>
+                                        <p class="text-slate-400 text-sm leading-relaxed">
+                                            {item.desc}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── Selected Projects ───────────────────────────────────────────── -->
+            <section
+                id="projects"
+                class="border-t border-purple-900/30 py-20 sm:py-28"
+            >
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-1 h-8 bg-fuchsia-500"></div>
+                        <span
+                            class="mono text-xs text-fuchsia-500 uppercase tracking-[0.2em]"
+                            >Work</span
+                        >
+                        <div
+                            class="flex-1 h-px ml-4"
+                            style="background-color: rgba(88,28,135,0.25);"
+                        ></div>
+                    </div>
+
+                    <h2
+                        class="text-2xl sm:text-3xl font-extrabold tracking-tight uppercase text-white mb-12"
+                    >
+                        Selected Projects
+                    </h2>
+
+                    <!-- 2×2 grid with shared outer border, internal dividers -->
+                    <div
+                        class="grid sm:grid-cols-2 border-2 border-purple-900/50"
+                    >
+                        {
+                            projects.map((project, i) => (
+                                <article
+                                    class={`project-card p-6 sm:p-8 ${projectBorderClass[i]}`}
+                                >
+                                    <div class="flex items-start justify-between mb-5">
+                                        <span class="mono text-xs text-slate-700 font-bold">
+                                            {project.num}
+                                        </span>
+                                        <span class="badge-block text-[0.62rem]">
+                                            {project.tag}
+                                        </span>
+                                    </div>
+                                    <h3 class="text-white font-extrabold text-sm uppercase tracking-wider leading-snug mb-3">
+                                        {project.title}
+                                    </h3>
+                                    <p class="text-slate-400 text-sm leading-relaxed">
+                                        {project.desc}
+                                    </p>
+                                </article>
+                            ))
+                        }
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ─── Footer ─────────────────────────────────────────────────────────── -->
+        <footer class="border-t-2 border-purple-900/40 py-10">
+            <div
+                class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4"
+            >
+                <p class="mono text-xs text-slate-700">
+                    &copy; 2026 Arjun Arora. Built with Astro &amp; Docker.
+                </p>
+                <a
+                    href="https://www.linkedin.com/in/arjunarora/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mono text-xs text-slate-600 hover:text-fuchsia-500 transition-colors uppercase tracking-wider"
+                >
+                    LinkedIn ↗
+                </a>
+            </div>
+        </footer>
+    </body>
+</html>
